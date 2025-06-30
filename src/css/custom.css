@@ -40,7 +40,7 @@
   /* Navbar */
   --ifm-navbar-background-color: #ffffff;
   --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --ifm-navbar-height: 4rem;
+  --ifm-navbar-height: 3.5rem;
   
   /* Cards and Surfaces */
   --ifm-card-background-color: #ffffff;
@@ -126,7 +126,7 @@ body {
 }
 
 .navbar__items {
-  align-items: center;
+  align-items: flex-start;
 }
 
 .navbar__item {
@@ -139,7 +139,7 @@ body {
   transition: color 0.3s ease;
   font-weight: 500;
   font-size: 0.875rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.4rem 0.50rem;
   border-radius: 6px;
   transition: all 0.3s ease;
 }
@@ -152,54 +152,31 @@ body {
 
 /* Specific navbar link styles */
 .navbar-market-link,
-.navbar-funds-link,
-.navbar-explorer-link,
+.navbar-portfolio-builder-link,
 .navbar-docs-link {
   border-bottom: 2px solid transparent;
   border-radius: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0.8rem;
   margin-bottom: -2px;
 }
 
 .navbar-market-link:hover,
-.navbar-funds-link:hover,
-.navbar-explorer-link:hover,
+.navbar-portfolio-builder-link:hover,
 .navbar-docs-link:hover {
   border-bottom-color: var(--ifm-color-primary);
   background: transparent;
 }
 
-/* Right side navbar items */
-.navbar-watchlist-link {
-  color: var(--neutral-80) !important;
-  font-weight: 500;
-}
 
-.navbar-watchlist-link:hover {
-  color: var(--ifm-color-primary) !important;
-  background: transparent;
-}
-
-.navbar-portfolio-link,
-.navbar-login-link {
-  color: var(--ifm-color-content) !important;
-  font-weight: 500;
-}
-
-.navbar-portfolio-link:hover,
-.navbar-login-link:hover {
-  color: var(--ifm-color-primary) !important;
-  background: rgba(43, 95, 243, 0.1);
-}
 
 /* Sign Up button styling - matching the blue button in the interface */
 .navbar-signup-btn {
   background: var(--ifm-color-primary) !important;
   color: #ffffff !important;
-  border-radius: 8px !important;
-  padding: 0.5rem 1rem !important;
-  font-weight: 600 !important;
-  font-size: 0.875rem !important;
+  border-radius: 6px !important;
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 0.8125rem !important;
   margin-left: 0.5rem;
   transition: all 0.3s ease;
   border: none;
@@ -215,8 +192,7 @@ body {
 /* Navbar mobile responsiveness */
 @media (max-width: 996px) {
   .navbar-market-link,
-  .navbar-funds-link,
-  .navbar-explorer-link,
+  .navbar-portfolio-builder-link,
   .navbar-docs-link {
     border-bottom: none;
     padding-bottom: 0.5rem;

@@ -15,14 +15,12 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroContent}>
           <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
-            {siteConfig.title}
+            {siteConfig.tagline}
           </Heading>
           <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
-            {siteConfig.tagline}
+            Invest Smarter. Earn More. Trade Seamlessly.
           </p>
-          <p className={styles.heroDescription}>
-            <strong>Invest Smarter. Earn More. Trade Seamlessly.</strong>
-          </p>
+          
           <p className={styles.heroSubDescription}>
             Cyndicate Club represents the evolution of real estate investing—offering fractional, liquid, blockchain-enabled opportunities. Access a diversified global property portfolio, enhance returns through DeFi strategies, and trade real estate assets seamlessly.
           </p>

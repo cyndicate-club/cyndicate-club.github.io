@@ -70,22 +70,16 @@ const config: Config = {
       },
       items: [
         {
-          href: 'https://www.cyndicate.club',
-          label: 'Market',
+          href: 'https://marketplace.cyndicate.club/analytics',
+          label: 'Market Analytics',
           position: 'left',
           className: 'navbar-market-link',
         },
         {
-          href: 'https://www.cyndicate.club/funds',
-          label: 'Funds',
+          href: 'https://marketplace.cyndicate.club/',
+          label: 'Portfolio Builder',
           position: 'left',
-          className: 'navbar-funds-link',
-        },
-        {
-          href: 'https://www.cyndicate.club/explorer',
-          label: 'Explorer',
-          position: 'left',
-          className: 'navbar-explorer-link',
+          className: 'navbar-portfolio-builder-link',
         },
         {
           type: 'docSidebar',
@@ -93,25 +87,6 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
           className: 'navbar-docs-link',
-        },
-
-        {
-          href: 'https://www.cyndicate.club/watchlist',
-          label: '♡ Watchlist',
-          position: 'right',
-          className: 'navbar-watchlist-link',
-        },
-        {
-          href: 'https://www.cyndicate.club/portfolio',
-          label: 'Portfolio',
-          position: 'right',
-          className: 'navbar-portfolio-link',
-        },
-        {
-          href: 'https://www.cyndicate.club/login',
-          label: 'Log In',
-          position: 'right',
-          className: 'navbar-login-link',
         },
         {
           href: 'https://www.cyndicate.club/signup',
