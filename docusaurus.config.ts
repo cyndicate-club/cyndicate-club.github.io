@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Cyndicate Club',
+  tagline: 'Unlock Higher Returns with Blockchain-Powered Real Estate Investments',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docs.cyndicate.club',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'cyndicate-club', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -45,23 +45,9 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/cyndicate-club/docs/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -72,71 +58,151 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     navbar: {
-      title: 'My Site',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Cyndicate Club Logo',
+        src: 'img/cyndicate-logo.svg',
       },
       items: [
+        {
+          href: 'https://www.cyndicate.club',
+          label: 'Market',
+          position: 'left',
+          className: 'navbar-market-link',
+        },
+        {
+          href: 'https://www.cyndicate.club/funds',
+          label: 'Funds',
+          position: 'left',
+          className: 'navbar-funds-link',
+        },
+        {
+          href: 'https://www.cyndicate.club/explorer',
+          label: 'Explorer',
+          position: 'left',
+          className: 'navbar-explorer-link',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
+          className: 'navbar-docs-link',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
+          href: 'https://www.cyndicate.club/watchlist',
+          label: '♡ Watchlist',
           position: 'right',
+          className: 'navbar-watchlist-link',
+        },
+        {
+          href: 'https://www.cyndicate.club/portfolio',
+          label: 'Portfolio',
+          position: 'right',
+          className: 'navbar-portfolio-link',
+        },
+        {
+          href: 'https://www.cyndicate.club/login',
+          label: 'Log In',
+          position: 'right',
+          className: 'navbar-login-link',
+        },
+        {
+          href: 'https://www.cyndicate.club/signup',
+          label: 'Sign Up',
+          position: 'right',
+          className: 'navbar-signup-btn',
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
-          title: 'Docs',
+          title: 'Platform',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Market',
+              href: 'https://www.cyndicate.club',
+            },
+            {
+              label: 'Funds',
+              href: 'https://www.cyndicate.club/funds',
+            },
+            {
+              label: 'Explorer',
+              href: 'https://www.cyndicate.club/explorer',
+            },
+            {
+              label: 'Portfolio',
+              href: 'https://www.cyndicate.club/portfolio',
+            },
+          ],
+        },
+        {
+          title: 'Resources',
+          items: [
+            {
+              label: 'Documentation',
               to: '/docs/intro',
             },
+            {
+              label: 'API Reference',
+              to: '/docs/intro',
+            },
+
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discord.gg/cyndicate',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Twitter',
+              href: 'https://twitter.com/cyndicateclub',
+            },
+            {
+              label: 'Telegram',
+              href: 'https://t.me/cyndicateclub',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/cyndicate-club',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Company',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'About Us',
+              href: 'https://www.cyndicate.club/about',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Careers',
+              href: 'https://www.cyndicate.club/careers',
+            },
+            {
+              label: 'Contact',
+              href: 'https://www.cyndicate.club/contact',
+            },
+            {
+              label: 'Legal',
+              href: 'https://www.cyndicate.club/legal',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Cyndicate Club. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

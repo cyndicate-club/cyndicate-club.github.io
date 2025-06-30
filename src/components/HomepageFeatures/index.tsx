@@ -5,52 +5,84 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Global Access Without Barriers',
+    icon: '🌍',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        A single platform to explore over 2,000 tokenized properties across 30 countries.
+        Invest from anywhere—free from the restrictions of traditional real estate markets.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Fractional Ownership for Everyone',
+    icon: '🏠',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Build a real estate portfolio starting with just $1,000.
+        Compete with institutional investors—without needing millions in capital.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Compound Growth & Passive Income',
+    icon: '📈',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Reinvest monthly rental earnings to accelerate portfolio appreciation.
+        Deploy smart reinvestment strategies for maximum long-term ROI.
+      </>
+    ),
+  },
+  {
+    title: 'Unlocked Liquidity & DeFi Strategies',
+    icon: '🔓',
+    description: (
+      <>
+        Trade instantly on the secondary market—eliminating lengthy sales cycles.
+        Use real estate tokens as collateral for loans and yield-generating DeFi strategies.
+      </>
+    ),
+  },
+  {
+    title: 'AI-Driven Portfolio Builder',
+    icon: '🤖',
+    description: (
+      <>
+        Analyze & compare over 2,000 tokenized real estate deals across 9 blockchains.
+        Get AI-powered insights to identify properties with the highest ROI potential.
+      </>
+    ),
+  },
+  {
+    title: 'On-Chain Transparency',
+    icon: '🔗',
+    description: (
+      <>
+        Get instant access to financial performance metrics through the Portfolio Tracker.
+        Full transparency with blockchain-verified property data and returns.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, icon, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--4', styles.feature)}>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>
+          <span className={styles.icon}>{icon}</span>
+        </div>
+        <div className={styles.featureContent}>
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -60,10 +92,29 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.featuresHeader}>
+          <Heading as="h2" className={styles.featuresTitle}>
+            Why Invest with Cyndicate Club?
+          </Heading>
+          <p className={styles.featuresSubtitle}>
+            The evolution of real estate investing—offering fractional, liquid, blockchain-enabled opportunities
+          </p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
+        </div>
+        <div className={styles.complianceSection}>
+          <div className={styles.complianceContent}>
+            <Heading as="h3" className={styles.complianceTitle}>
+              Fully Compliant & Secure
+            </Heading>
+            <p className={styles.complianceDescription}>
+              Integrated with leading blockchains: Ethereum, Polygon, Arbitrum, Base, Algorand, Binance Smart Chain, and Hedera.
+              Fully compliant under CIMA (Cayman Islands), MiCA (EU), QFC (Qatar), and MAS (Singapore).
+            </p>
+          </div>
         </div>
       </div>
     </section>

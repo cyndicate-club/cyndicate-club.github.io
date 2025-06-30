@@ -13,18 +13,35 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
+        <div className={styles.heroContent}>
+          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+            {siteConfig.title}
+          </Heading>
+          <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
+            {siteConfig.tagline}
+          </p>
+          <p className={styles.heroDescription}>
+            <strong>Invest Smarter. Earn More. Trade Seamlessly.</strong>
+          </p>
+          <p className={styles.heroSubDescription}>
+            Cyndicate Club represents the evolution of real estate investing—offering fractional, liquid, blockchain-enabled opportunities. Access a diversified global property portfolio, enhance returns through DeFi strategies, and trade real estate assets seamlessly.
+          </p>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--primary button--lg"
+              to="/docs/intro">
+              Get Started
+            </Link>
+            <Link
+              className="button button--secondary button--lg"
+              href="https://www.cyndicate.club"
+              target="_blank">
+              Launch Platform
+            </Link>
+          </div>
         </div>
       </div>
+      <div className={styles.heroBackground}></div>
     </header>
   );
 }
@@ -33,8 +50,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - Blockchain-Powered Real Estate Investments`}
+      description="Unlock higher returns with blockchain-powered real estate investments. Access tokenized properties, fractional ownership, and DeFi strategies with Cyndicate Club.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

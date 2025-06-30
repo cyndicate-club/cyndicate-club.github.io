@@ -4,27 +4,930 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Import Google Fonts - Figtree for Cyndicate Club + DM Sans for small text */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800&display=swap');
+
+/* Cyndicate Club Custom Variables - Colors from design system */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary Colors from Design System */
+  --ifm-color-primary: #2B5FF3;
+  --ifm-color-primary-dark: #1849D0;
+  --ifm-color-primary-darker: #1849D0;
+  --ifm-color-primary-darkest: #1849D0;
+  --ifm-color-primary-light: #2B5FF3;
+  --ifm-color-primary-lighter: #C1D1FF;
+  --ifm-color-primary-lightest: #B5D6FF;
+  
+  /* Background Colors - From design system */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #F9F9F9;
+  --ifm-background-secondary: #EBEDEE;
+  
+  /* Typography - Figtree font family */
+  --ifm-font-family-base: 'Figtree', system-ui, -apple-system, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 700;
+  --ifm-color-content: #000000;
+  --ifm-color-content-secondary: #394755;
+  
+  /* Code */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-code-background: rgba(43, 95, 243, 0.1);
+  --ifm-code-color: #2B5FF3;
+  
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --ifm-navbar-height: 4rem;
+  
+  /* Cards and Surfaces */
+  --ifm-card-background-color: #ffffff;
+  
+  /* Borders */
+  --ifm-color-emphasis-300: #D7DADD;
+  --ifm-toc-border-color: #D7DADD;
+  --ifm-hr-background-color: #D7DADD;
+  
+  /* Neutrals from Design System */
+  --neutral-100: #394755;
+  --neutral-80: #606C77;
+  --neutral-60: #889199;
+  --neutral-40: #B0B6BB;
+  --neutral-20: #D7DADD;
+  --neutral-10: #EBEDEE;
+  --neutral-off-white: #F9F9F9;
+  
+  /* Accent colors from Design System */
+  --accent-green: #35B468;
+  --accent-red: #FD512B;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(43, 95, 243, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode variables */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #C1D1FF;
+  --ifm-color-primary-dark: #B5D6FF;
+  --ifm-color-primary-darker: #2B5FF3;
+  --ifm-color-primary-darkest: #1849D0;
+  --ifm-color-primary-light: #C1D1FF;
+  --ifm-color-primary-lighter: #B5D6FF;
+  --ifm-color-primary-lightest: #B5D6FF;
+  
+  --ifm-background-color: #394755;
+  --ifm-background-surface-color: #606C77;
+  --ifm-navbar-background-color: #394755;
+  --ifm-footer-background-color: #394755;
+  --ifm-color-content: #FFFFFF;
+  --ifm-color-content-secondary: #D7DADD;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(193, 209, 255, 0.15);
+}
+
+/* Global Styles */
+html {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+body {
+  background: #ffffff;
+  font-family: var(--ifm-font-family-base);
+  color: var(--ifm-color-content);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Navbar Styles - Matching Cyndicate Club interface */
+.navbar {
+  background: var(--ifm-navbar-background-color);
+  box-shadow: var(--ifm-navbar-shadow);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem 0;
+  min-height: var(--ifm-navbar-height);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ifm-color-primary);
+  margin-right: 2rem;
+}
+
+.navbar__logo {
+  margin-left: 24px;
+}
+
+@media (max-width: 996px) {
+  .navbar__logo {
+    margin-left: 0;
+  }
+}
+
+.navbar__items {
+  align-items: center;
+}
+
+.navbar__item {
+  font-weight: 500;
+  margin: 0 0.5rem;
+}
+
+.navbar__link {
+  color: var(--ifm-color-content);
+  transition: color 0.3s ease;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+  background: rgba(43, 95, 243, 0.1);
+}
+
+/* Specific navbar link styles */
+.navbar-market-link,
+.navbar-funds-link,
+.navbar-explorer-link,
+.navbar-docs-link {
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding-bottom: 1rem;
+  margin-bottom: -2px;
+}
+
+.navbar-market-link:hover,
+.navbar-funds-link:hover,
+.navbar-explorer-link:hover,
+.navbar-docs-link:hover {
+  border-bottom-color: var(--ifm-color-primary);
+  background: transparent;
+}
+
+/* Right side navbar items */
+.navbar-watchlist-link {
+  color: var(--neutral-80) !important;
+  font-weight: 500;
+}
+
+.navbar-watchlist-link:hover {
+  color: var(--ifm-color-primary) !important;
+  background: transparent;
+}
+
+.navbar-portfolio-link,
+.navbar-login-link {
+  color: var(--ifm-color-content) !important;
+  font-weight: 500;
+}
+
+.navbar-portfolio-link:hover,
+.navbar-login-link:hover {
+  color: var(--ifm-color-primary) !important;
+  background: rgba(43, 95, 243, 0.1);
+}
+
+/* Sign Up button styling - matching the blue button in the interface */
+.navbar-signup-btn {
+  background: var(--ifm-color-primary) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  margin-left: 0.5rem;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.navbar-signup-btn:hover {
+  background: var(--ifm-color-primary-dark) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar mobile responsiveness */
+@media (max-width: 996px) {
+  .navbar-market-link,
+  .navbar-funds-link,
+  .navbar-explorer-link,
+  .navbar-docs-link {
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  .navbar-signup-btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    display: block;
+    text-align: center;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  background: var(--neutral-off-white);
+  border-top: 1px solid var(--neutral-20);
+}
+
+.footer__title {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+.footer__item {
+  color: var(--neutral-80);
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Button Styles - Matching the blue "Sign Up" button */
+.button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.button--primary {
+  background: var(--ifm-color-primary);
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.button--primary:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+.button--secondary {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.button--secondary:hover {
+  background: #f8fafc;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+  color: var(--ifm-color-primary);
+}
+
+/* Card Styles - Clean white cards like in the interface */
+.card {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--neutral-20);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Code Block Styles */
+.prism-code {
+  border-radius: 4px;
+  border: 1px solid var(--neutral-20);
+  background: var(--neutral-off-white);
+}
+
+/* Heading Styles - Enhanced with Figtree using Design System */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--ifm-heading-font-weight);
+  color: var(--ifm-color-content);
+  font-family: var(--ifm-font-family-base);
+}
+
+/* H1 - Uses Heading 1 Desktop style */
+h1 {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+/* H2 - Uses Heading 2 style */
+h2 {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+/* H3 - Uses Body Large Bold */
+h3 {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+/* H4 - Uses Body Regular Bold */
+h4 {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* H5 - Uses Body Small Bold */
+h5 {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* H6 - Uses Body x-Small Bold (DM Sans) */
+h6 {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Mobile responsive headings */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-size: 22px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Link Styles */
+a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+/* Sidebar Styles */
+.theme-doc-sidebar-container {
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+}
+
+.theme-doc-sidebar-item-link {
+  color: #64748b;
+}
+
+.theme-doc-sidebar-item-link:hover,
+.theme-doc-sidebar-item-link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* Table Styles - Matching the clean table design */
+table {
+  border-collapse: collapse;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--neutral-20);
+  background: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  background: var(--neutral-off-white);
+  color: var(--neutral-80);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+}
+
+td {
+  color: var(--ifm-color-content);
+  padding: 12px 16px;
+  font-size: 22px;
+}
+
+td, th {
+  border: 1px solid var(--neutral-20);
+}
+
+tr:hover {
+  background: var(--neutral-off-white);
+}
+
+/* Search Box */
+.DocSearch-Button {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.DocSearch-Button:hover {
+  background: #f1f5f9;
+  border-color: var(--ifm-color-primary);
+}
+
+/* Content area */
+.main-wrapper {
+  background: #ffffff;
+}
+
+/* Pagination */
+.pagination__item--active .pagination__link {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+}
+
+/* Breadcrumbs */
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ifm-color-primary);
+}
+
+/* Menu */
+.menu__link {
+  color: #64748b;
+  border-radius: 6px;
+}
+
+.menu__link:hover,
+.menu__link--active {
+  color: var(--ifm-color-primary);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+/* Toggle */
+.toggle {
+  background: #e2e8f0;
+}
+
+.toggle:hover {
+  background: #cbd5e1;
+}
+
+/* Alert/Admonition styles */
+.alert {
+  border-radius: 8px;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+/* Stats/Metrics styling (like the $4.3B, $370.5M display) */
+.stats-card {
+  background: #ffffff;
+  border: 1px solid var(--neutral-20);
+  border-radius: 4px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.stats-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ifm-color-content);
+  margin-bottom: 0.5rem;
+  font-family: var(--ifm-font-family-base);
+  line-height: 110%;
+  letter-spacing: -0.02em;
+}
+
+.stats-label {
+  font-size: 22px;
+  color: var(--neutral-80);
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.stats-change {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  line-height: 140%;
+}
+
+.stats-change.positive {
+  color: var(--accent-green);
+}
+
+.stats-change.negative {
+  color: var(--accent-red);
+}
+
+/* Complete Typography System from Design System */
+
+/* Display Styles */
+.display-1-desktop {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+  color: var(--ifm-color-content);
+}
+
+.display-1-mobile {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: var(--ifm-color-content);
+}
+
+.display-2-desktop {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+  color: var(--ifm-color-content);
+}
+
+.display-2-mobile {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  color: var(--ifm-color-content);
+}
+
+/* Heading Styles */
+.heading-1-desktop {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+.heading-1-mobile {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+.heading-2-desktop,
+.heading-2-mobile {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+/* Body Text Styles */
+
+/* Body x-Large (32px) */
+.body-xlarge-bold {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-content);
+}
+
+.body-xlarge-medium {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-content);
+}
+
+.body-xlarge-regular {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-content);
+}
+
+/* Body Large (22px) */
+.body-large-bold {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+.body-large-medium {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-large-regular {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Body Regular (18px) */
+.body-regular-bold {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-regular-medium {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-regular-regular {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Body Small (16px) */
+.body-small-bold {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-small-medium {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-small-regular {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Body x-Small (14px) - Uses DM Sans as per design system */
+.body-xsmall-bold {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-xsmall-medium {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-xsmall-regular {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Body Tiny (12px) - Mix of Figtree and DM Sans as per design system */
+.body-tiny-bold {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-tiny-medium {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.body-tiny-regular {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Enhanced typography for better readability */
+p {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+/* Base text styling */
+.text-large {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.text-regular {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.text-small {
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.text-xsmall {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.text-tiny {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  color: var(--ifm-color-content);
+}
+
+.navbar__brand,
+.button,
+.stats-number {
+  font-family: var(--ifm-font-family-base);
+}
+
+/* Responsive Typography Classes */
+@media (max-width: 768px) {
+  .display-responsive {
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+  }
+  
+  .heading-responsive {
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 996px) {
+  .navbar {
+    background: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] {
+  .card {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .stats-card {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .stats-number {
+    color: #f1f5f9;
+  }
+  
+  table {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  th {
+    background: #334155;
+    color: #f1f5f9;
+  }
+  
+  td {
+    color: #e2e8f0;
+  }
+  
+  td, th {
+    border-color: #334155;
+  }
+  
+  tr:hover {
+    background: #334155;
+  }
+  
+  .navbar-signup-btn {
+    background: var(--ifm-color-primary) !important;
+    color: #ffffff !important;
+  }
+  
+  .navbar-signup-btn:hover {
+    background: var(--ifm-color-primary-dark) !important;
+    color: #ffffff !important;
+  }
 }
