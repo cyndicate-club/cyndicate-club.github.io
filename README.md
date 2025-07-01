@@ -1,41 +1,87 @@
-# Website
+# Cyndicate Club Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+> Complete integration guide for Cyndicate Club real estate property data synchronization.
 
-## Installation
+## 🚀 Quick Start
 
-```bash
-yarn
-```
-
-## Local Development
+### Local Development
 
 ```bash
-yarn start
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm start
+
+# Build for production
+pnpm build
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+### Docker
 
-## Build
-
+#### Production Build
 ```bash
-yarn build
+# Build and run production container
+docker-compose up --build
+
+# Access documentation at http://localhost:3000
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
+#### Development with Hot Reload
 ```bash
-USE_SSH=true yarn deploy
+# Run development container with hot reload
+docker-compose --profile dev up docs-dev
+
+# Access development server at http://localhost:3001
 ```
 
-Not using SSH:
-
+#### Manual Docker Commands
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+# Build image
+docker build -t cyndicate-docs .
+
+# Run container
+docker run -p 3000:80 cyndicate-docs
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## 🔧 GitHub Actions
+
+The project includes automated CI/CD pipeline that:
+
+- ✅ **Tests and builds** on every push and PR
+- 🚀 **Deploys to GitHub Pages** on main branch
+- 🐳 **Builds Docker image** and pushes to Docker Hub
+- 📦 **Caches dependencies** for faster builds
+
+### Setup Requirements
+
+1. **GitHub Pages**: Enable Pages in repository settings
+2. **Docker Hub**: Add secrets to repository:
+   - `DOCKER_USERNAME`: Your Docker Hub username
+   - `DOCKER_PASSWORD`: Your Docker Hub access token
+
+### Deployment
+
+The documentation automatically deploys to:
+- **GitHub Pages**: `https://docs.cyndicate.club`
+- **Docker Hub**: `cyndicateclub/docs:latest`
+
+## 📚 Documentation Structure
+
+- **Integration**: Complete API integration guide
+- **Authentication**: HTTP Basic auth setup
+- **Data Schema**: Property data format and validation
+- **API Endpoints**: Complete API reference
+- **Scheduling**: Feed scheduling and update strategies
+
+## 🛠 Built With
+
+- [Docusaurus](https://docusaurus.io/) - Documentation framework
+- [React](https://reactjs.org/) - UI framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Docker](https://www.docker.com/) - Containerization
+- [GitHub Actions](https://github.com/features/actions) - CI/CD
+
+## 📄 License
+
+Copyright © 2025 Cyndicate Club. All rights reserved.
