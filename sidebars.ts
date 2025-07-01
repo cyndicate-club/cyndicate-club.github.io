@@ -16,27 +16,17 @@ const sidebars: SidebarsConfig = {
   // Manual sidebar configuration for better control
   tutorialSidebar: [
     'intro',
-    'typography',
     {
       type: 'category',
-      label: 'Tutorial - Basics',
+      label: 'Integration',
       items: [
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/create-a-blog-post', 
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/create-a-page',
-        'tutorial-basics/congratulations',
-        'tutorial-basics/deploy-your-site',
+        'integration/index',
+        'integration/authentication',
+        'integration/property-synchronization',
+        'integration/error-codes',
       ],
     },
-    {
-      type: 'category',
-      label: 'Tutorial - Extras',
-      items: [
-        'tutorial-extras/manage-docs-versions',
-        'tutorial-extras/translate-your-site',
-      ],
-    },
+    
   ],
 };
 
