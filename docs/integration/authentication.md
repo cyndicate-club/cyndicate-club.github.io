@@ -4,8 +4,23 @@
 
 For external systems providing property data to Cyndicate Club, we use HTTP Basic Authentication. This is used when:
 
-1. **Our robot fetches data** from your endpoints
+1. **Our robot fetches data** from your endpoints (HTTPS only)
 2. **You send data** to our webhook endpoints
+
+## Getting Credentials
+
+To obtain your integration credentials:
+
+- **Contact Support**: Email us at `integration-support@cyndicate.club`
+- **Through Your Manager**: Contact your assigned account manager
+- **During Onboarding**: Credentials are provided during the integration setup process
+
+You will receive:
+- **Username**: Unique identifier for your integration
+- **Password**: Secure password for authentication
+- **Endpoint URLs**: Our API endpoints for data submission
+
+⚠️ **Important**: Our data fetching robot **only works with HTTPS**. HTTP endpoints will be rejected for security reasons.
 
 ## HTTP Basic Authentication
 
@@ -88,9 +103,11 @@ def get_properties():
 
 ## Requirements
 
-- **HTTPS only** - Never use HTTP for production
+- **HTTPS only** - Our robot exclusively works with HTTPS endpoints. HTTP will not work
+- **Valid SSL certificate** - Your HTTPS endpoint must have a valid SSL certificate
 - **Strong password** - At least 12 characters with mixed case, numbers, symbols
 - **Unique credentials** - Don't reuse passwords from other systems
+- **Credential security** - Store credentials securely and never expose them in logs or version control
 
 ## Testing
 
@@ -106,10 +123,15 @@ curl -u "wrong:password" https://your-domain.com/properties.json
 
 ## Common Errors
 
-| Error | Cause | Solution |
-|-------|-------|----------|
-| 401 Unauthorized | Wrong username/password | Check credentials |
-| 400 Bad Request | Invalid auth header | Fix authorization format |
-| 403 Forbidden | Correct credentials but no access | Check permissions |
+<dl>
+<dt><strong>401 Unauthorized</strong></dt>
+<dd>Wrong username/password - Check credentials</dd>
+
+<dt><strong>400 Bad Request</strong></dt>
+<dd>Invalid auth header - Fix authorization format</dd>
+
+<dt><strong>403 Forbidden</strong></dt>
+<dd>Correct credentials but no access - Check permissions</dd>
+</dl>
 
  

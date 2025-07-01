@@ -3,6 +3,6 @@
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Complete integration guide for Cyndicate Club real estate property data synchronization."
+    "description": "Complete integration guide for Cyndicate Club real estate property data synchronization. Learn how to connect your platform using feed pulls or API pushes."
   }
 } 
