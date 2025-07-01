@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
     icon: '🌍',
     description: (
       <>
-        A single platform to explore over 2,000 tokenized properties across 30 countries.
+        A single platform to explore over 1,000 tokenized properties across 5 countries.
         Invest from anywhere—free from the restrictions of traditional real estate markets.
       </>
     ),
@@ -25,7 +25,7 @@ const FeatureList: FeatureItem[] = [
     icon: '🏠',
     description: (
       <>
-        Build a real estate portfolio starting with just $1,000.
+        Build a real estate portfolio starting with just $50.
         Compete with institutional investors—without needing millions in capital.
       </>
     ),
@@ -55,7 +55,7 @@ const FeatureList: FeatureItem[] = [
     icon: '🤖',
     description: (
       <>
-        Analyze & compare over 2,000 tokenized real estate deals across 9 blockchains.
+        Analyze & compare over 1,000 tokenized real estate deals across 9 blockchains.
         Get AI-powered insights to identify properties with the highest ROI potential.
       </>
     ),
