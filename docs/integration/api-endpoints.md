@@ -40,7 +40,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 **Our Endpoint**: We provide an endpoint for you to push data
 
 ```http
-POST https://api.cyndicate.club/api/assets
+POST https://api.cyndicate.club/assets
 Content-Type: application/json
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
@@ -63,7 +63,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 For real-time token price changes:
 
 ```http
-POST https://api.cyndicate.club/api/assets/{id}/update_price
+POST https://api.cyndicate.club/assets/{id}/update_price
 Content-Type: application/json
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
@@ -85,7 +85,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 Send multiple assets in a single request:
 
 ```http
-POST https://api.cyndicate.club/api/assets/batch
+POST https://api.cyndicate.club/assets/batch
 Content-Type: application/json
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
@@ -110,7 +110,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 Update multiple asset prices:
 
 ```http
-POST https://api.cyndicate.club/api/assets/update_prices
+POST https://api.cyndicate.club/assets/update_prices
 Content-Type: application/json
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
@@ -135,7 +135,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 Mark an asset as inactive:
 
 ```http
-POST https://api.cyndicate.club/api/assets/{id}/deactivate
+POST https://api.cyndicate.club/assets/{id}/deactivate
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -144,7 +144,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 Mark an asset as active again:
 
 ```http
-POST https://api.cyndicate.club/api/assets/{id}/activate
+POST https://api.cyndicate.club/assets/{id}/activate
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -176,40 +176,3 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 }
 ```
 
-## Rate Limits
-
-- **Feed Pulls**: Once per day (or agreed schedule)
-- **Asset Push**: 100 requests per minute
-- **Price Updates**: 1000 requests per minute
-- **Batch Operations**: 10 requests per minute
-
-## Testing Endpoints
-
-### Validate Asset Data
-
-Test your asset data without saving:
-
-```http
-POST https://api.cyndicate.club/api/assets/validate
-Content-Type: application/json
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-
-{
-  "id": "TEST123",
-  "name": "Test Property",
-  // ... other fields
-}
-```
-
-**Response**: Validation results without creating the asset
-
-### Connection Test
-
-Test your authentication:
-
-```http
-GET https://api.cyndicate.club/api/test/connection
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-```
-
-**Response**: `200 OK` if credentials are valid 

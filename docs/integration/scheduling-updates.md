@@ -7,13 +7,10 @@ We will fetch the full JSON feed **daily** (or at another agreed interval). Each
 - **Timeout**: 30 seconds per request
 - **Retries**: 3 attempts with exponential backoff (30 seconds between attempts)
 
-### Custom Schedules
 Available frequencies:
 - **Hourly**: Every hour (high-volume providers)
 - **Weekly**: Once per week (low-change properties)
 - **On-demand**: Manual triggers only
-
-
 
 
 ### Feed Requirements
@@ -40,4 +37,12 @@ Available frequencies:
   ]
 }
 ```
+
+## Hybrid Integration Approach
+
+You can combine both approaches for maximum flexibility. For instance, you might run a daily full data pull via the Feed to catch any missed updates and ensure consistency, and also push critical changes or new assets via the API as they occur. This hybrid approach uses the feed as a reliable batch sync (an audit/passive backup) and webhooks for immediacy.
+
+**Pricing Updates:** In particular, use a dedicated API/webhook for price updates. Frequent price changes (market data, valuation updates, etc.) should be sent through our pricing endpoint or pushed via webhook rather than waiting for the next feed cycle. This way, investors always see the latest prices.
+
+By understanding the trade-offs, you can choose the right method (or mix) for your needs. Pull feeds give you simple, complete snapshots on a schedule, while webhooks let you keep data current in real time. Combining them ensures robust and up-to-date integration.
 

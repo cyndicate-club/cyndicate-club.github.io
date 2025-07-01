@@ -22,8 +22,9 @@ const sidebars: SidebarsConfig = {
       items: [
         'integration/index',
         'integration/authentication',
-        'integration/data-schema',
+        
         'integration/api-endpoints',
+        'integration/data-schema',
         'integration/scheduling-updates',
       ],
     },
