@@ -27,19 +27,16 @@ We support two main ways to synchronize data between your system and ours, each 
 
 **How it works:** Your system actively **pushes** updates to us via HTTP requests whenever something changes. For example, when a new asset is added or an existing one changes, your software makes an HTTP `POST` or `PUT` call (with the asset’s JSON) to our REST API endpoint (e.g. `https://api.cyndicate.club/assets`). This is an **event-driven** (webhook) approach: data flows from you to us as soon as events occur, without waiting for us to poll your system.
 
-**Advantages:** Webhooks provide near real-time updates. As soon as a change happens in your system, you notify us immediately. This minimizes latency and keeps our records up-to-date for investors and other clients. Push updates also eliminate the need for our system to repeatedly poll your data (saving resources). As Zapier notes, “Webhooks don’t require much ‘talking’ — data flows in one direction”, meaning once you send an update, no further back-and-forth is needed. They are lightweight and efficient: they carry just the data about the change (you decide exactly what to send), which is ideal for notifying us of specific events. In practice, webhooks reduce constant polling; instead of us asking every few minutes, your system tells us only when something important happens.
-
-**Considerations:** Webhooks require your system to reliably send data on every event. You should handle retries or monitoring in case requests fail (e.g. network issues). Because each webhook carries only the changed asset (or event data), there is less built-in context than a full feed. Also, webhooks typically do not guarantee ordering or replay. If a webhook delivery is missed and not retried, that update can be lost. Therefore, design your integration so each push is idempotent and contains enough information to apply the update correctly. For example, always include a unique asset ID and all fields that need updating.
+**Advantages:** Webhooks provide near real-time updates. As soon as a change happens in your system, you notify us immediately. This minimizes latency and keeps our records up-to-date for investors and other clients. Push updates also eliminate the need for our system to repeatedly poll your data (saving resources). In practice, webhooks reduce constant polling; instead of us asking every few minutes, your system tells us only when something important happens.
 
 **Use cases:** Webhooks are ideal for any situation where you want instant synchronization. Examples include creating a new asset, marking an asset as inactive, or making a high-impact change (like a legal status update) that investors should see right away. Because webhooks handle events one at a time, they work well for unpredictable or bursty updates (new data entering the system sporadically). They are also useful when data changes frequently and you want to avoid the delay of a scheduled feed.
 
 ## Using Both Methods Together
 
-You can combine both approaches for maximum flexibility. For instance, you might run a daily full data pull via the Feed to catch any missed updates and ensure consistency, **and** also push critical changes or new assets via the API as they occur. This hybrid approach uses the feed as a reliable batch sync (an audit/passive backup) and webhooks for immediacy.
+You can combine both approaches for maximum flexibility. For instance, you might run a daily full data pull via the **Feed** to catch any missed updates and ensure consistency, and also push critical changes or new assets via the API as they occur. This hybrid approach uses the feed as a reliable batch sync (an audit/passive backup) and webhooks for immediacy.
 
 **Pricing Updates:** In particular, use a dedicated API/webhook for price updates. Frequent price changes (market data, valuation updates, etc.) should be sent through our pricing endpoint or pushed via webhook rather than waiting for the next feed cycle. This way, investors always see the latest prices.
 
-By understanding the trade-offs, you can choose the right method (or mix) for your needs. Pull feeds give you simple, complete snapshots on a schedule, while webhooks let you keep data current in real time. Combining them ensures robust and up-to-date integration.
 
 
 
