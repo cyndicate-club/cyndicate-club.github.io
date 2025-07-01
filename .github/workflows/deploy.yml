@@ -63,7 +63,7 @@ jobs:
       
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: 'https://cyndicate-club.github.io/'
 
     steps:
       - name: Download build artifacts
